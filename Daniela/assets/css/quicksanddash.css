@@ -1,0 +1,7 @@
+@font-face {
+	font-family: 'quicksanddash';
+	src: url(../../assets/fonts/quicksand_dash-webfont.woff2) format('woff2'),
+	url(../../assets/fonts/quicksand_dash-webfont.woff) format('woff');
+	font-weight: normal;
+	font-style: normal;
+}

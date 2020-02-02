@@ -1,0 +1,7 @@
+@font-face {
+	font-family: 'quicksanditalic';
+	src: url(../../assets/fonts/quicksand-italic-webfont.woff2) format('woff2'),
+	url(../../assets/fonts/quicksand-italic-webfont.woff) format('woff');
+	font-weight: normal;
+	font-style: normal;
+}

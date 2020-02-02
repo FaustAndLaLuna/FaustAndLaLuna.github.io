@@ -1,0 +1,21 @@
+.bg-secondary {
+  background-color: #34000c!important;
+}
+
+.bg-primary {
+  background-color: #95249f!important;
+}
+
+hr.star-light {
+  border-color: #ffff99;
+}
+
+h2 {
+  font-family: 'quicksanditalic';
+}
+
+.font-weight-light.mb-0 {
+  font-family: 'quicksanditalic';
+  line-height: 22px;
+}
+
