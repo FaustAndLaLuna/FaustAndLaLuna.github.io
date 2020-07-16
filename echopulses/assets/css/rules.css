@@ -20,6 +20,17 @@ a {
 	color: #9B9B9B;
 	text-decoration: none;
 }
+::placeholder{
+	color: #e0e0e0;
+	opacity: 1;
+}
+::-ms-input-placeholder{
+	color: #e0e0e0;
+}
+:-ms-input-placeholder{
+	color: #e0e0e0;
+}
+
 #brand {
 	float:left;
 }
@@ -126,10 +137,16 @@ button{
 	font-family: "IBM Plex Sans";
 	font-size: 25px;
 	margin-top: 60px;
+	border: 0;
+	box-shadow: none;
+	border-radius: 0px;
 }
 
 .sectionImg{
 	width: 100%;
+	display: -webkit-sticky;
+	display: sticky;
+	top: 0;
 }
 
 #team{
@@ -144,8 +161,12 @@ button{
 	grid-template-rows: 1fr 1fr;
 }
 .teamCard{
+	position: relative;
 	background-color: #ffffff;
 	grid-template-rows: 4fr 2fr;
+}
+.teamCardContainer:hover > .teamCardHover{
+	top: 0;
 }
 .teamImg{
 	width: 100%;
@@ -156,7 +177,53 @@ button{
 	padding: 33px 0 33px 0;
 	margin-bottom: 0;
 }
+.teamCardContainer{
+	position: relative;
+	overflow: hidden;
+}
+.teamCardHover{
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	background-color: #ffffff;
+	visibility: visible;
+	transition: top 0.5s;
+}
+.teamCardHover > p{
+	padding-left: 33px;
+	padding-right: 33px;
+	margin-top: -58px;
+	font-size: 20px;
+}
 
+#contact{
+	background-color: #323232;
+	color: white;
+	font-size: 60px;
+	text-align: center;
+	padding: 75px 118px;
+}
+.formTextOneLine{
+	display: block;
+	margin-bottom: 28px;
+	border-radius: 5px;
+	background-color: #545454;
+	color: white;
+	width: 100%;
+	font-family: 'IBM Plex Sans';
+	border: 0;
+	box-shadow: none;
+	border-radius: 0px;
+	font-size: 25px;
+}
+#contact > button{
+	background-color: white;
+	color: #323232;
+}
 
 .standardMarginLeft{
 	margin-left: 80px;
@@ -165,7 +232,7 @@ button{
 	margin-right: 80px;
 }
 body {
-	margin: 0px 0px 0px 0px;
+	margin: 0;
 	font-family: 'IBM Plex Sans';
 	font-size: 25px;
 }
