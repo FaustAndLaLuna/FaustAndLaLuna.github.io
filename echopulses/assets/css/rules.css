@@ -248,7 +248,17 @@ button{
 #arrowNext{
 	display: none;
 }
-
+#hamburger{
+	display: none;
+}
+#hamburgerOut{
+	display: none;
+	visibility: hidden;
+}
+#mobileMenu{
+	display: none;
+	visibility: hidden;
+}
 .standardMarginLeft{
 	margin-left: 80px;
 }

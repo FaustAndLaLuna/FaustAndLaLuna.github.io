@@ -119,6 +119,23 @@ $(document).ready(function() {
         $("#arrowLast").click(buttonLast);
         $("#arrowNext").click(buttonNext);
 
+        $("#hamburger").click(function(){
+            $("#hamburger").css("visibility", "hidden");
+            $("#hamburgerOut").css("visibility", "visible");
+            $("#mobileMenu").css("visibility", "visible");
+            $("#hamburger").css("opacity", "0");
+            $("#hamburgerOut").css("opacity", "1");
+            $("#mobileMenu").css("opacity", "1");
+        });
+        var disappear = function(){
+            $("#hamburgerOut").css("visibility", "hidden");
+            $("#hamburger").css("visibility", "visible");
+            $("#mobileMenu").css("visibility", "hidden");
+            $("#hamburger").css("opacity", "1");
+            $("#hamburgerOut").css("opacity", "0");
+            $("#mobileMenu").css("opacity", "0");
+        }
+        $(".disappear").click(disappear);
     }
 })
 
