@@ -2,7 +2,7 @@ function carouselMove(){
 
 }
 
-$(document).ready(function() {
+$(window).on('load', function() {
     
         // let margin = $("#heroImg").offset().left - ($("#heroAccent").offset().left + $("#heroAccent").width());
         // margin -= 5;
