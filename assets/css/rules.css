@@ -1,23 +1,26 @@
 @charset "utf-8";
 
 #logo {
-	height: 45px;
+	height: 5.85vh;
 	width: auto;
 }
 #header {
-	margin: 25px 80px 0px 80px;
+	display: flex;
+	justify-content: space-between;
+	margin: 3.255vh 5.8565vw;
 	font-family: dazzle-unicase, sans-serif;
     font-weight: 200;
-    font-style: normal;
+	font-style: normal;
+	font-size: 2.40em;
+	align-items: center;
 }
 #menu {
-	float: right;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	display: flex;
+	justify-content: space-around;
 }
 #menu > div{
 	text-align: right;
-	width: 180px;
+	width: 13.17vw;
 }
 a {
 	color: #f9f9fa;
@@ -34,41 +37,45 @@ a {
 	color: #e0e0e0;
 }
 
-#brand {
-	float:left;
-}
-
 #hero{
-	margin-top: -2vh;
-	margin-bottom: 146px;
-	display: grid;
-	grid-template-columns: 3fr 2fr;
+	margin-top: 0;
+	margin-bottom: 15.6657vh;
 	width: 100%;
 	height: 75vh;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+#heroContainer{
+	float:left;
+	position: absolute;
+	display: grid;
+	grid-template-columns: 3fr 2fr;
+	column-gap: 2vw;
+	top: 35vh;
+	transform: translate(0, -50%);
+	left: 0;
+	margin: 0 2.92825vw;
 }
 #hero button{
 	background-color: #d43c68;
 	float: right;
 }
 #heroText{
-	margin-right: 97px;
-	position: absolute;
+	z-index: 1;
 	bottom: 0;
+	margin-top: 60vh;
 }
 #bgAnim{
-	height: 100vh;
+	height: 90.895vh;
 	width: 100vw;
-	position: absolute;
-	float: left;
+	position: relative;
 	z-index: -1;
-	top: 6vh;
+	top: 0;
 }
 #logoAnim{
 	z-index: 1;
-	width: 55vw;
-	position: absolute;
-	top: 38vh;
-	left: 3vw;
+	width: 100%;
 }
 #heroImgs{
 	height: 75vh;
@@ -93,33 +100,56 @@ a {
 
 #references{
 	display: flex;
-	padding: 240px 60px 240px 60px;
+	font-size: 1.65vw;
+	width: 100%;
+	padding: 11.125vh 0;
 	justify-content: space-around;
 	background-color: #F4F4F4;
 	align-items: center;
+}
+#references h2{
+	font-size: 2.4em;
+}
+#mediaAnim{
+	width: 15vw;
+	left: 50%;
+	position: relative;
+	transform: translate(-50%,0);
+}
+#references h1{
+	font-size: 3em;
+}
+#referencesContainer{
+	display: grid;
+	grid-template-rows: 3fr 1fr;
+	justify-content: center;
+	align-content: center;
 }
 
 #queHacemos{
 	background-color: #f9f9fa;
 }
 #queHacemosText{
+	font-family: dazzle-unicase, sans-serif;
+    font-weight: 200;
 	display: block;
-	padding: 15vh 60px;
+	padding: 10vh 0;
 	text-align: center;
 	font-size: 40px;
 	color: #323232;
 	line-height: 23px;
 }
 #queHacemosCards{
-	display: flex;
-	justify-content: space-between;
-	margin: 0 100px 370px 100px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	column-gap: 2vw;
+	width: 85.3588vw;
+	margin: 0 7.3206vw 20vh 7.3206vw;
 }
 .queHacemosCard{
 	display: inline-grid;
-	width: 16%;
 	grid-template-rows: auto 37px 57px;
-	padding: 31px 42px 40px 42px;
+	padding: 4.046997vh 3.07467vw 5.22193vh;
 	background-color: #D4D4D4;
 	font-size: 20px;
 	font-weight: 700;
@@ -130,7 +160,7 @@ a {
 	color: #d43c68;
 }
 .queHacemosCard > img{
-	border-radius: 25px;
+	border-radius: 2vw;
 	width: 100%;
 }
 
@@ -161,7 +191,7 @@ h2{
 	color: #323232;
 }
 .sectionText > img{
-	width:410px;
+	width:30vw;
 	margin-left:80px;
 }
 button{
@@ -188,13 +218,14 @@ button{
 #team{
 	background-color: #F4F4F4;
 	display: grid;
-	padding: 95px 80px 135px 80px;
+	padding: 12.369vh 5.8565vw 17.5781vh 5.8565vw;
 	grid-template-columns: 5fr 6fr;
+	align-items: center;
+	font-size: 1.9765vw;
 }
 #teamCards{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
 }
 .teamCard{
 	position: relative;
@@ -233,8 +264,8 @@ button{
 	padding-left: 33px;
 	padding-right: 33px;
 	margin-top: -58px;
-    text-align: justify;
-	font-size: 20px;
+	text-align: justify;
+	font-size: 1.4641vw;
 }
 
 #contact{
@@ -284,10 +315,10 @@ button{
 	visibility: hidden;
 }
 .standardMarginLeft{
-	margin-left: 80px;
+	margin-left: 5.8565vw;
 }
 .standardMarginRight{
-	margin-right: 80px;
+	margin-right: 5.8565vw;
 }
 body {
 	margin: 0;
@@ -295,7 +326,7 @@ body {
     font-weight: 400;
     font-style: normal;
     background-color: #261e39;;
-	font-size: 25px;
+	font-size: 0.91405vw;
 }
 .highlightColor {
 	color: #d43c68;

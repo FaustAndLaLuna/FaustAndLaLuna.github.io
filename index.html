@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<title>Impakt Studio</title>
 	<link rel="stylesheet" href="assets/css/rules.css">
-	<link rel="stylesheet" href="assets/css/rules_laptop.css" media="screen and (max-width: 1199px)">
-	<link rel="stylesheet" href="assets/css/rules_tablet.css" media="screen and (max-width: 991px)">
+	
+	<!-- <link rel="stylesheet" href="assets/css/rules_tablet.css" media="screen and (max-width: 991px)"> -->
 	<link rel="stylesheet" href="assets/css/rules_phone.css" media="screen and (max-width: 767px)">
     <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
     <link rel="stylesheet" href="https://use.typekit.net/cjp7mzi.css">
@@ -15,7 +15,6 @@
 
 <body>
 	<div id="header" class="standardMarginLeft standardMarginRight">
-		<p style="visibility: hidden; height: 0px; margin: 0px;"> a</p>
 		<div id="brand">
 			<a href="/"><img src="assets/svgs/logo.svg" id="logo" alt="logo"></a>
 		</div>
@@ -28,25 +27,27 @@
 	</div>
 	
 	<div id="hero">
-		
-		<div id="heroImgs">
-			<div id="bgAnim">
-            </div>
+		<div id="bgAnim">
+        </div>
+        <div id="heroContainer">
             <div id="logoAnim">
             </div>
-        </div>
-        <div style="width: 100%; height: 100%; position:relative">
-			<div id="heroText">
-				<span class="heroTittle" >Incita acción</span> <br>
+            <div id="heroText">
+                <span class="heroTittle" >Incita acción</span> <br>
                 <span class="heroNormalText">Motiva a tu audiencia clave a elegir por medio de atractivas experiencias digitales.</span>
                 <button onclick="window.location.href='#contact'"> Contáctanos </button>
-			</div>
-		</div>
+            </div>
+        </div>
 	</div>
 
 	<div id="references">
-        <h2>"No hay poder más grande para el cambio que una comunidad que descubre qué es lo que le importa." </h2>
-        <br> <h1>Margaret J. Wheatley</h1>
+        <h2 class="standardMarginLeft">"El <span style="color:#d43c68; font-size: 1.1em">medio</span> es el <span style="color:#d43c68; font-size: 1.1em">mensaje</span>" </h2> 
+        <div id="referencesContainer">
+            <div id="mediaAnim">
+            </div>
+            <br>
+            <h1 class="t">- Marshall McLuhan</h1>
+        </div>
 	</div>
     <div id="BGCOLORCHANGE">
         <div id="queHacemos">
@@ -151,32 +152,32 @@
             <div id="teamCards">
                 <div id="firstTeamCard" class="teamCardContainer">
                     <div class="teamCardHover">
-                        <h2 class="cardText">Edgar Domínguez</h2><br />
+                        <h2 class="cardText">Edgar <br/>Domínguez</h2><br />
                         <p>Programador de día y artísta de noche, Edgar ha trabajado incansablemente para comunicar el mundo digital con el análogo. </p>
                     </div>
                     <div class="teamCard">
                         <img class="teamImg" src="assets/imgs/team1.png">
-                        <h2 class="cardText">Edgar Domínguez</h2>
+                        <h2 class="cardText">Edgar <br/>Domínguez</h2>
                     </div>
                 </div>
                 <div class="teamCardContainer">
                     <div class="teamCardHover">
-                        <h2 class="cardText">Julian Aguirre</h2><br />
+                        <h2 class="cardText">Julian <br/>Aguirre</h2><br />
                         <p>Julian, el economísta y mercadólogo, ha desarrollado un conjunto de habilidades que cambian casi cualquier paradigma.</p>
                     </div>
                     <div class="teamCard">
                         <img class="teamImg" src="assets/imgs/team1.png">
-                        <h2 class="cardText">Julian Aguirre</h2>
+                        <h2 class="cardText">Julian <br/>Aguirre</h2>
                     </div>
                 </div>
                 <div class="teamCardContainer">
                     <div class="teamCardHover">
-                        <h2 class="cardText">Miranda Moreno</h2><br />
+                        <h2 class="cardText">Miranda <br/>Moreno</h2><br />
                         <p>Siendo emprendedora y diseñadora de corazón, Miranda acompleta el equipo con excelentes habilidades estéticas y con la gente.</p>
                     </div>
                     <div class="teamCard">
                         <img class="teamImg" src="assets/imgs/team1.png">
-                        <h2 class="cardText">Miranda Moreno</h2>
+                        <h2 class="cardText">Miranda <br/>Moreno</h2>
                     </div>
                 </div>
 
@@ -185,9 +186,10 @@
         <form id="contact" action="https://send.pageclip.co/C24nkhsprV5dWPp6aUg0iBC1J0yEGszN/Contact" class="pageclip-form" method="post">
             <p>Escríbenos</p>
             <input type="text" class="formTextOneLine" name="name" placeholder="Nombre">
-            <input type="text" class="formTextOneLine" name="email" placeholder="Correo">
+            <input type="email" class="formTextOneLine" name="email" placeholder="Correo">
+            <input type="hidden" name="subject" value="Contacto con Impakt"/>
             <textarea class="formTextOneLine" name="mensaje" rows="10" placeholder="Mensaje"></textarea>
-            <button type="submit" form="contact" value="Mandar Mensaje"><span>Mandar</span></button>
+            <button type="submit" form="contact" value="Mandar Mensaje" class="button pageclip-form__submit"><span>Mandar</span></button>
         </form>
         <!-- MOBILE ONLY  -->
         <img src="assets/imgs/arrowLast.png" id="arrowLast">
@@ -196,7 +198,7 @@
         <img src="assets/imgs/hamburgerOut.png" id="hamburgerOut" class="disappear">
         <div id="mobileMenu">
             <div>
-                <a href="#references" class="disappear">Clientes</a>
+                <a href="#references" class="disappear">Medios</a>
                 <a href="#queHacemos" class="disappear">Servicios</a>
                 <a href="#team" class="disappear">Equipo</a>
                 <a href="#contact" class="disappear">Contacto</a>
@@ -209,6 +211,6 @@
     <script src="/assets//js//lottie.min.js"></script>
     <script src="/assets/js/animate.js"></script>
     <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
-	<!--<script src="assets/js/organize.js"></script>-->
+	<script src="assets/js/organize.js"></script>
 </body>
 </html>
