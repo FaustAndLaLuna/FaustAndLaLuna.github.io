@@ -1,0 +1,288 @@
+@charset "utf-8";
+
+#logo {
+	height: 20px;
+	width: 158px;
+}
+#header {
+	margin: 80px 80px 0px 80px;
+}
+#menu {
+	float: right;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+#menu > div{
+	text-align: right;
+	width: 180px;
+}
+a {
+	color: #9B9B9B;
+	text-decoration: none;
+}
+::placeholder{
+	color: #e0e0e0;
+	opacity: 1;
+}
+::-ms-input-placeholder{
+	color: #e0e0e0;
+}
+:-ms-input-placeholder{
+	color: #e0e0e0;
+}
+
+#brand {
+	float:left;
+}
+
+#hero{
+	margin-top: 80px;
+	margin-bottom: 146px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	/* width: 100%; */
+}
+#heroText{
+	margin-right: 97px;
+	position: absolute;
+	bottom: 0;
+}
+#heroImgsContainer{
+	width: 100%;
+	height: 100%; 
+	position:relative;
+}
+#heroImg{
+	position:absolute;
+	width: 576px;
+	height: 576px;
+	left: 0;
+	top:57px;
+	z-index: 1;
+}
+#heroImgAccent{
+	float:right;
+	min-height: 90.566%;
+	min-width: 90.566%;
+	top: 0;
+	z-index: 0;
+	background-color: #F4F4F4
+}
+.heroAccent{
+	font-size: 32px;
+}
+.heroTittle{
+	font-size: 60px; 
+	color: black; 
+	font-weight: 300
+}
+.heroNormalText{
+	font-size: 25px;
+}
+
+#references{
+	display: flex;
+	padding: 240px 60px 240px 60px;
+	justify-content: space-around;
+	background-color: #F4F4F4;
+	align-items: center;
+}
+
+#queHacemosText{
+	display: block;
+	padding: 156px 60px 156px 60px;
+	text-align: center;
+	font-size: 40px;
+	color: #323232;
+	line-height: 23px;
+}
+#queHacemosCards{
+	display: flex;
+	justify-content: space-between;
+	margin: 0 100px 370px 100px;
+}
+.queHacemosCard{
+	display: inline-grid;
+	width: 16%;
+	grid-template-rows: auto 37px 57px;
+	padding: 31px 42px 40px 42px;
+	background-color: #F4F4F4;
+	font-size: 20px;
+	font-weight: 700;
+	border-radius: 25px;
+}
+.queHacemosCard > a{
+	font-weight: normal;
+}
+.queHacemosCard > img{
+	border-radius: 25px;
+	width: 100%;
+}
+
+.section{
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+.sectionText{
+	font-size: 25px;
+	color: #9b9b9b;
+}
+h1{
+	margin-top: 20%;
+	font-size: 60px;
+	font-weight: 500;
+	color: #323232;
+	line-height: 78px;
+	margin-bottom: -20px;
+}
+h2{
+	margin-top: -10px;
+	font-size: 27px;
+	font-weight: 700;
+	color: #323232;
+}
+.sectionText > img{
+	width:410px;
+	margin-left:80px;
+}
+button{
+	padding: 20px 35px 20px 35px;
+	background-color: #323232;
+	color: white;
+	font-family: "IBM Plex Sans";
+	font-size: 25px;
+	margin-top: 60px;
+	border: 0;
+	box-shadow: none;
+	border-radius: 0px;
+	margin-bottom: 60px;
+}
+
+.sectionImg{
+	width: 100%;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
+#team{
+	background-color: #F4F4F4;
+	display: grid;
+	padding: 95px 80px 135px 80px;
+	grid-template-columns: 5fr 6fr;
+}
+#teamCards{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+}
+.teamCard{
+	position: relative;
+	background-color: #ffffff;
+	grid-template-rows: 4fr 2fr;
+}
+.teamCardContainer:hover > .teamCardHover{
+	top: 0;
+}
+.teamImg{
+	width: 100%;
+	height: auto;
+}
+.cardText{
+	text-align: center;
+	padding: 33px 0 33px 0;
+	margin-bottom: 0;
+}
+.teamCardContainer{
+	position: relative;
+	overflow: hidden;
+}
+.teamCardHover{
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	background-color: #ffffff;
+	visibility: visible;
+	transition: top 0.5s;
+}
+.teamCardHover > p{
+	padding-left: 33px;
+	padding-right: 33px;
+	margin-top: -58px;
+    text-align: justify;
+	font-size: 20px;
+}
+
+#contact{
+	background-color: #323232;
+	color: white;
+	font-size: 60px;
+	text-align: center;
+	padding: 75px 118px;
+}
+.formTextOneLine{
+	display: block;
+	margin-bottom: 28px;
+	border-radius: 5px;
+	background-color: #545454;
+	color: white;
+	width: 100%;
+	font-family: 'IBM Plex Sans';
+	border: 0;
+	box-shadow: none;
+	border-radius: 0px;
+	font-size: 25px;
+}
+#contact > button{
+	background-color: white;
+	color: #323232;
+}
+#arrowLast{
+	display: none;
+}
+#arrowNext{
+	display: none;
+}
+#hamburger{
+	display: none;
+}
+#hamburgerOut{
+	display: none;
+	visibility: hidden;
+}
+#mobileMenu{
+	display: none;
+	visibility: hidden;
+}
+.standardMarginLeft{
+	margin-left: 80px;
+}
+.standardMarginRight{
+	margin-right: 80px;
+}
+body {
+	margin: 0;
+	font-family: 'IBM Plex Sans';
+	font-size: 25px;
+}
+.highlightColor {
+	color: #EE4136;
+}
+.greyColor {
+	color: #9b9b9b;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,104 @@
+#logo {
+	height: 20px;
+	width: 158px;
+}
+#header {
+	margin: 80px 80px 0px 80px;
+}
+#menu > div{
+	width: 140px;
+}
+
+#heroImgAccent{
+    width: 370px;
+    height: auto;
+}
+#heroImg{
+    width: 370px;
+    height: auto;
+}
+.heroAccent{
+	font-size: 28px;
+}
+.heroTittle{
+	font-size: 53px; 
+	color: black; 
+	font-weight: 300
+}
+.heroNormalText{
+	font-size: 20px;
+}
+
+body{
+    font-size: 20px;
+}
+
+#references{
+	padding: 240px 60px 240px 60px;
+}
+#references img{
+    width: 120px;
+    height: auto;
+}
+
+#queHacemosText{
+	padding: 96px 60px 96px 60px;
+}
+
+#queHacemosCards{
+	margin: 0 75px 180px 75px;
+}
+
+.queHacemosCard{
+	width: 18%;
+	padding: 28px 21px 35px 21px;
+	font-size: 1rem;
+	font-weight: 600;
+}
+.queHacemosCard > a{
+    margin-top: -1.3em;
+    font-weight: normal;
+}
+
+.sectionText{
+	font-size: 25px;
+	color: #9b9b9b;
+}
+h1{
+	font-size: 45px;
+}
+h2{
+	font-size: 25px;
+	font-weight: 600;
+}
+.sectionText > img{
+	width:310px;
+}
+.sectionText > p{
+    font-size: 20px;
+}
+
+
+.teamCardContainer h2{
+	font-size: 18px;
+}
+.teamCardHover > p{
+	padding-left: 25px;
+	padding-right: 25px;
+    font-size: 15px;
+}
+.teamCardHover{
+    overflow: hidden;
+}
+
+#contact{
+    padding: 25px 100px;
+}
+.formTextOneLine{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+h1{
+    line-height: 65px;
+}

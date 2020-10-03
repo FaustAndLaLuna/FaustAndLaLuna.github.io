@@ -1,0 +1,544 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <title>noise</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="Luis Edgar Dominguez">
+    <meta name="description" content="Evento de Audio inmersivo.">
+    <meta name="keywords" content="noise,musica,evento,audio,inmersivo">
+    <link rel="stylesheet" href="https://use.typekit.net/rle1bwq.css">
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+<style>
+body{
+    margin: 0;
+    padding: 0;
+    font-family: acumin-pro;
+    font-size: 2.2vw;
+    overflow: hidden;
+}
+p{
+    color: white;
+    margin-bottom: -11px;
+}
+span > br{
+    line-height: 0px;
+}
+button{
+    background-color: transparent;
+    color: white;
+    font-size: 1.5vw;
+    min-width: calc(12.5vw - 5px);
+    border: 2px solid white;
+    margin: 0 -2px 0 0 ;
+    padding: 17px 20px;
+    text-transform: uppercase;
+    font-family: acumin-pro;
+}
+h1{
+    font-family: acumin-pro;
+    font-size: 2.6vw;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    text-align: center;
+}
+hr{
+    width: 20vw;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:visited{
+    color: white;
+}
+
+#container{
+    width: 100vw;
+    height: 100vh;
+}
+#bokeh{
+    z-index: 0;
+    background: url(assets/images/BokehEditedSmoll.jpg) no-repeat 50% 100%;
+    bottom: -10vh;
+    background-size: cover;
+    position: fixed;
+    height: auto;
+    width: 120vw;
+    left: -5%;
+    top: -5%;
+}
+#mic{
+    z-index: 1;
+    position: fixed;
+    height: auto;
+    width: 37vw;
+    right: 20px;
+    bottom: -5vh;
+
+}
+.blackBG{
+    z-index: 2;
+    background-color: black;
+    position: fixed;
+    width: 45%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.gradientBG{
+    z-index: 2;
+    width: 13%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+    position: fixed;
+    left: 44%;
+    top: 0;
+}
+#noise{
+    min-width: 200px;
+    width: 20.83vw;
+    max-width: 500px;
+    height: auto;
+    margin-left: -18px;
+}
+.cardContainer{
+    z-index: 3;
+    width: 50vw;
+    height: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 40px 0px 40px 40px;
+    text-align: center;
+}
+.buttonContainer{
+    position: absolute;
+    top: 60vh;
+    left: 40px;
+}
+
+.contentContainer::-webkit-scrollbar{
+    display: none;
+}
+.contentContainer{
+    z-index: 5;
+    position: absolute;
+    display: none;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-content: center;
+    width: 100vw;
+    color: white;
+    height: 100%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.wrapper{
+    height: fit-content;
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: relative;
+    transition: opacity 0.2s ease-in;
+    opacity: 0;
+    display: none;
+}
+.speaker{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.speakerReverse{
+    grid-template-columns: 4fr 1fr;
+}
+.speaker > img{
+    width: 100%;
+    height: auto;
+}
+.subscribe{
+    width: 50vw;
+    height: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 40px;
+    text-align: center;
+}
+input[type='email']{
+    font-size: inherit;
+    font-family: inherit;
+}
+.article{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 40px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+.articleReverse{
+    grid-template-columns: 3fr 2fr;
+}
+
+.scene, .layer{
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.scene{
+    position: relative;
+    overflow: hidden;
+}
+#subscribeForm{
+    display: flex;
+    justify-content: center;
+}
+
+
+#filter{
+    z-index: 4;
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+    backdrop-filter: blur(7px);
+}
+.speakers{
+    padding: 60px;
+    width: 30em;
+    max-width: 100vw;
+    border-radius: 4px;
+    min-height: 100vh;
+}
+.regresar{
+    position: absolute;
+    right: 60px;
+    top: 60px;
+    display: block;
+}
+.regresarFinal{
+    position: absolute;
+    right: 60px;
+    bottom: 60px;
+    display: block;
+}
+.last{
+    margin-bottom: 120px;
+}
+@media screen and (max-width: 1200px){
+    body{
+        font-size: 20px;
+    }
+    button{
+        font-size: 20px;
+    }
+    h1{
+        font-size: 24px;
+    }
+
+}
+@media screen and (max-width: 601px){
+    .cardContainer{
+        width: 100vw;
+        height: 50vh;
+        padding: 30px 0 0 0;
+    }
+    .buttonContainer{
+        position: static;
+        margin-top: 30px;
+    }
+    button{
+        width: 45vw;
+        padding: 10px 0;
+        margin-top: -2px;
+    }
+    #bokeh{
+        background: url(assets/images/BokehEditedSmoll.jpg) no-repeat 73% 40%;
+    }
+    .blackBG{
+        width: 100vw;
+        height: 45vh;
+    }
+    .gradientBG{
+        width: 100%;
+        height: 13%;
+        background-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(0,0,0,0));
+        position: fixed;
+        left: 0;
+        top:44%;
+    }
+    #mic{
+        width: 80vw;
+        right: 10vw;
+        transform: translate(50%,0);
+        transform: scaleX(-1);
+    }
+    .speakers{
+        padding-top: 80px;
+    }
+    .regresar{
+        left: 50%;
+        top: 20px;
+        transform: translate(-50%, 0);
+    }
+    .wrapper{
+        padding: 20px;
+    }
+    .speaker{
+        justify-content: center;
+        width: 90vw;
+        margin: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        position: relative;
+        text-align: justify;
+    }
+    .speaker img{
+        height: 30vh;
+        width: auto;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    .speakerReverse > img{
+        grid-row: 1;
+    }
+    .speakerRevers > p{
+        grid-row: 2;
+    }
+    .speaker > p{
+        margin-bottom: 60px;
+    }
+    .regresarFinal{
+        left: 50%;
+        bottom: 20px;
+        transform: translate(-50%, 0);
+    }
+    .articleReverse > img{
+        grid-row: 1;
+    }
+    .articleRevers > div{
+        grid-row: 2;
+    }
+    .article{
+        margin-bottom: 60px;
+    }
+    .newsletter{
+        width: 90vw;
+    }
+    form{
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        position: relative;
+    }
+    form > button{
+        position: relative;
+        left: 50%;
+        transform: translate(-50%,0);
+    }
+    form > input{
+        position: relative;
+        left: 50%;
+        transform: translate(-50%,0);
+    }
+}
+</style>
+</head>
+
+<body>
+    
+    <div id="container" class="container">
+		<ul id="scene" class="scene">
+            <li class="layer" data-depth="0.07"><div id="bokeh"></div></li>
+            <li class="layer" data-depth="0.25"><img src="assets/images/Mic.png" id="mic"></li>
+            <li><div class="blackBG"></div></li>
+            <li><div class="gradientBG"></div></li>
+        </ul>
+    </div>
+    <div class="cardContainer">
+        <img src="assets/images/NoiseLogoWhite.png" alt="" id="noise">
+        <p>El evento de producción de audio de los alumnos del Tec de Monterrey.</p>
+        <span><br></span>
+        <p>Este año tendrá un enfoque en audio inmersivo.</p>
+        <div class="buttonContainer">
+            <button onclick="makeVisible($('.speakerWrapper')[0]);">Ponentes</button><button onclick="makeVisible($('.articlesWrapper')[0]);">Artículos</button><button onclick="makeVisible($('.scheduleWrapper')[0]);">Horario</button><button onclick="makeVisible($('.subscribeWrapper')[0]);">Newsletter</button>
+        </div>
+    </div>
+
+    <div id="filter"></div>
+    <div class="contentContainer" id="SPEAKERSCONTENT">
+        <div class="speakerWrapper wrapper">
+            <button class="regresar" onclick="makeInvisible($('.speakerWrapper')[0])">REGRESAR</button>
+            <div class="speakers">
+                <h1>Ponentes</h1><hr>
+                <div class="speaker">
+                    <img src="assets/images/randomDude.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="speaker speakerReverse">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <img src="assets/images/randomDude.jpg" alt="">
+                </div>
+                <div class="speaker">
+                    <img src="assets/images/randomDude.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="speaker speakerReverse last">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <img src="assets/images/randomDude.jpg" alt="">
+                </div>
+                <button class="regresarFinal" onclick="makeInvisible($('.speakerWrapper')[0])">REGRESAR</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="contentContainer" id="ARTICLESCONTENT">
+        <div class="articlesWrapper wrapper">
+            <button class="regresar" onclick="makeInvisible($('.articlesWrapper')[0])">REGRESAR</button>
+            <div class="speakers">
+                <h1>Artículos</h1><hr>
+                <div class="speaker article">
+                    <img src="assets/images/article.jpg" alt="">
+                    <div>
+                        <a><h1>Artículo ejemplo 1</h1></a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+                <div class="speaker article articleReverse">
+                    <div>
+                        <a><h1>Artículo ejemplo 2</h1></a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <img src="assets/images/article.jpg" alt="">
+                </div>
+                <div class="speaker article">
+                    <img src="assets/images/article.jpg" alt="">
+                    <div>
+                        <a><h1>Artículo ejemplo 3</h1></a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+                <div class="speaker article articleReverse last">
+                    <div>
+                        <a><h1>Artículo ejemplo 4</h1></a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <img src="assets/images/article.jpg" alt="">
+                </div>
+                <button class="regresarFinal" onclick="makeInvisible($('.articlesWrapper')[0])">REGRESAR</button>
+            </div>
+        </div>
+    </div>
+    <div class="contentContainer" id="SCHEDULECONTENT">
+        <div class="scheduleWrapper wrapper">
+            <div class="speakers">
+                <button class="regresar" onclick="makeInvisible($('.scheduleWrapper')[0])">REGRESAR</button>
+                <h1>Horario</h1>
+                <div id="schedule">
+                    <ul>
+                        <li>Viernes 13 de Noviembre</li>
+                            <ul>
+                                <li>17:45-18:00 Video Presentación + Inicio</li>
+                                <li>18:00-18:45 Ponencia</li>
+                                <li>18:45-19:00 Cápsula Cultural</li>
+                                <li>19:00-19:45 Experiencia Inmersiva Sonora</li>
+                                <li>19:45-20:00 Cápsula Cultural</li>
+                                <li>20:00-21:00 Música en Vivo</li>
+                            </ul>
+                        <li>Sábado 14 de Noviembre</li>
+                            <ul>
+                                <li>16:00-17:30 Taller: Audio Inmersivo</li>
+                                <li>17:45-18:00 Video Presentación + Inicio</li>
+                                <li>18:00-18:45 Ponencia</li>
+                                <li>18:45-19:00 Cápsula Cultural</li>
+                                <li>19:00-19:45 Experiencia Inmersiva Sonora</li>
+                                <li>19:45-20:00 Cápsula Cultural</li>
+                                <li>20:00-21:00 Música en Vivo</li>
+                            </ul>
+                        <li>Domingo 15 de Noviembre</li>
+                            <ul>
+                                <li>17:45-18:00 Video Presentación + Inicio</li>
+                                <li>18:00-18:45 Ponencia</li>
+                                <li>18:45-19:00 Cápsula Cultural</li>
+                                <li>19:00-19:45 Experiencia Inmersiva Sonora</li>
+                                <li>19:45-20:00 Cápsula Cultural</li>
+                                <li>20:00-21:00 Música en Vivo</li>
+                            </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contentContainer" id="NEWSLETTERCONTENT">
+        <div class="wrapper subscribeWrapper">
+            <div class="speakers newsletter">
+                <button class="regresar" onclick="makeInvisible($('.subscribeWrapper')[0])">REGRESAR</button>
+                <h1>Suscribirse al newsletter</h1>
+                <p style="margin-bottom: 12vh;">¿Quieres que te llegue más información directamente a tu email?</p>
+                <div id="subscribeForm">
+                    <form action="https://send.pageclip.co/C24nkhsprV5dWPp6aUg0iBC1J0yEGszN/Noise" class="pageclip-form" method="post">
+                        <input type="email" name="email" value="" placeholder="Tu email." />
+                        <button type="submit" class="pageclip-form__submit">
+                            <span>¡Suscríbete!</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="assets/js/parallax.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+    <script>
+        function opacityTransition(opacity, el){
+            if(opacity == 0){
+                $(el).css("opacity", opacity);
+                setTimeout(function () {
+                    $(el).css("display", "none");
+                }, 300);
+            }
+            else{
+                console.log("");
+                $(el).css('display', "block");
+                setTimeout(function(){
+                    $(el).css('opacity', opacity);
+                }, 10);
+            }
+        }
+        function makeVisible(el){
+            $($(el).parent()).css("display", "flex");
+            opacityTransition(1, el);
+            opacityTransition(1, $("#filter"));
+        }
+        function makeInvisible(el){ 
+            opacityTransition(0, el);
+            opacityTransition(0, $("#filter"));
+            setTimeout(function () {
+                $($(el).parent()).css("display", "none");
+            }, 300);
+        }
+        
+        $(document).ready(function(){
+            var parallax = new Parallax($(".scene")[0], {selector: '.layer',});
+        });
+    </script>
+</body>
+
+</html>
