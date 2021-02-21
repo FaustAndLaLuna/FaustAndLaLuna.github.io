@@ -148,6 +148,15 @@ a:visited{
     opacity: 0;
     display: none;
 }
+.articlesPageWrapper{
+	height: fit-content;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: relative;
+    transition: opacity 0.2s ease-in;
+    opacity: 0;
+    display: none;
+}
 .speaker{
     width: 100%;
     display: grid;
@@ -155,6 +164,22 @@ a:visited{
     gap: 40px;
     align-items: center;
     margin-bottom: 20px;
+}
+.articlesPage{
+    width: 50vw;
+    display: block;
+    grid-template-columns: 1fr 4fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 20px;
+	padding:  200px 30%;
+}
+.articlesPage p {
+	font-size: 1.5vw;
+}
+.articlesPage > img{
+    width: 100%;
+    height: auto;
 }
 .speakerReverse{
     grid-template-columns: 4fr 1fr;
@@ -239,6 +264,9 @@ input[type='email']{
 .last{
     margin-bottom: 120px;
 }
+.article p{
+	font-size: 1.3vw;
+}
 @media screen and (max-width: 1200px){
     body{
         font-size: 20px;
@@ -252,6 +280,9 @@ input[type='email']{
 
 }
 @media screen and (max-width: 601px){
+	.article p{
+		font-size: 20px;
+	}
     .cardContainer{
         width: 100vw;
         height: 50vh;
@@ -307,6 +338,24 @@ input[type='email']{
         position: relative;
         text-align: justify;
     }
+	.articlesPage{
+        justify-content: center;
+        width: 90vw;
+        margin: auto;
+        position: relative;
+        text-align: justify;
+		padding: 120px 0;
+    }
+	.articlesPage p{
+		font-size: 20px;
+	}
+	.articlesPage img{
+        height: 30vh;
+        width: auto;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
     .speaker img{
         height: 30vh;
         width: auto;
@@ -331,11 +380,16 @@ input[type='email']{
     .articleReverse > img{
         grid-row: 1;
     }
+	.articleReverse > div{
+		width: 80vw;
+		padding-left: 10vw;
+	}
     .articleRevers > div{
         grid-row: 2;
     }
     .article{
         margin-bottom: 60px;
+		width: 90vw;
     }
     .newsletter{
         width: 90vw;
@@ -406,44 +460,77 @@ input[type='email']{
             </div>
         </div>
     </div>
-
+	
     <div class="contentContainer" id="ARTICLESCONTENT">
         <div class="articlesWrapper wrapper">
             <button class="regresar" onclick="makeInvisible($('.articlesWrapper')[0])">REGRESAR</button>
             <div class="speakers">
                 <h1>Artículos</h1><hr>
                 <div class="speaker article">
-                    <img src="assets/images/article.jpg" alt="">
+                    <img src="assets/images/articleNoise.jpg" alt="">
                     <div>
-                        <a><h1>Artículo ejemplo 1</h1></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a><h1>NOISE MX: Historia y enfoque.</h1></a>
+                        <p>NOISE MX, el nuevo nombre de lo que empezó siendo Noise, Congreso Internacional de Producción Musical. El primer congreso enfocado específicamente a la producción musical organizado por estudiantes para estudiantes.</p>
+						<button style="margin-top: 5%;position: relative;left: 100%;transform: translate(-100%,0);" onclick="makeArticleVisible($('.articlesWrapper')[0], $('.articlesPageWrapper')[0])"> Continuar Leyendo </button>
                     </div>
                 </div>
-                <div class="speaker article articleReverse">
+                <div class="speaker article articleReverse" style="margin-bottom: 90px;">
                     <div>
-                        <a><h1>Artículo ejemplo 2</h1></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                    <img src="assets/images/article.jpg" alt="">
+                        <a><h1>La historia del Norte de México a través del audio</h1></a>
+                        <p>Como ya sabemos, este 13 y 14 de Noviembre volverá NOISE con la promesa de llevarnos por un tour por todo méxico, utilizando el audio inmersivo como herramienta principal para llevar esto a cabo. </p>
+						<button style="margin-top: 5%;"  onclick="makeArticleVisible($('.articlesWrapper')[0], $('.articlesPageWrapper')[1])"> Continuar Leyendo </button>
+					</div>
+                    <img src="assets/images/articleNorte2.jpg" alt="">
                 </div>
-                <div class="speaker article">
-                    <img src="assets/images/article.jpg" alt="">
-                    <div>
-                        <a><h1>Artículo ejemplo 3</h1></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-                <div class="speaker article articleReverse last">
-                    <div>
-                        <a><h1>Artículo ejemplo 4</h1></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                    <img src="assets/images/article.jpg" alt="">
-                </div>
-                <button class="regresarFinal" onclick="makeInvisible($('.articlesWrapper')[0])">REGRESAR</button>
+                <button class="regresarFinal" style="margin-top: 5%;" onclick="makeInvisible($('.articlesWrapper')[0])">REGRESAR</button>
             </div>
         </div>
     </div>
+	
+    <div class="contentContainer" id="ARTICLESCONTENT">
+        <div class="articlesPageWrapper wrapper" >
+            <button class="regresar" onclick="makeInvisible($('.articlesPageWrapper')[0])">REGRESAR</button>
+			<div class="articlesPage">
+				<h1 style="text-align: center;">Vuelve NOISE MX, el congreso más joven de producción musical.</h1><br>
+				<img src="assets/images/articleNoise.jpg" alt="">
+				<p>NOISE MX, el nuevo nombre de lo que empezó siendo Noise, Congreso Internacional de Producción Musical. El primer congreso enfocado específicamente a la producción musical organizado por estudiantes para estudiantes. Y ahora, está de vuelta con su nueva edición 2020; NOISE MX: Edición Paseo por México. 
+	<br><br>
+	Este año, NOISE nos entregará una versión diferente de sus ediciones anteriores, siendo la primera diferencia que será un evento 100% en línea, adecuándose a un formato virtual para la seguridad de su público. También cabe mencionar que esta versión tendrá como giro principal las experiencias inmersivas. Es decir, que con tan solo el poder del sonido, NOISE llevará de la mano a sus espectadores por un paseo auditivo por todo México.
+	<br><br>
+	Noise comenzó en 2016 como un pequeño proyecto entre estudiantes de la carrera Ingeniería en Producción Musical, del Tecnológico de Monterrey Campus Santa Fe, con la intención de hacer un evento que informara a otros estudiantes sobre el mundo de la música y la producción desde un aspecto profesional, pero a la vez amable que invita a nuevos oyentes. Hoy, 4 años más tarde la tradición sigue en pie, pero cada vez a una mayor escala.
+	<br><br>
+	Los primeros eventos se realizaban en las instalaciones del mismo campus, pero conforme fue ganando más atención del público no solo dentro del Tec, sino de todas las personas interesadas en la producción, el congreso se fue moviendo a diferentes venues que satisficiera sus necesidades. 
+	<br><br>
+	Cada una de sus ediciones se han enfocado en temas diferentes dentro de la industria del espectáculo y la producción musical. Por ejemplo; Noise 2016 tuvo una integración del desarrollo de software más fuerte en su agenda, mientras la edición de 2019 ha tenido el giro más juvenil de todos, enfocándose en música electrónica y videojuegos. Ahora este año, de nuevo Noise nos probará que es un evento con la capacidad de reinventarse todos los años y atraer a un público nuevo cada vez.  NOISE MX: Edición Paseo por México.  Promete una experiencia completa como no se ha ofrecido antes, en estos tiempos de pandemia. Adaptándose a sus circunstancias, haciendo todo lo posible por ofrecer la calidad que siempre lo ha distinguido. 
+	<br><br>
+	Si quieres registrarte para NOISE MX: Edición Paseo por México, que será en las fechas 13, 14 y 15 de Noviembre, basta con que te suscribas a nuestro Canal de YouTube para mantenerte informado de todas las novedades.
+	 </p>
+				<button class="regresarFinal" style="margin-top: 5%;" onclick="makeInvisible($('.articlesPageWrapper')[0])">REGRESAR</button>
+			</div>
+        </div>
+    </div>
+	
+	    <div class="contentContainer" id="ARTICLESCONTENT">
+        <div class="articlesPageWrapper wrapper">
+            <button class="regresar" onclick="makeInvisible($('.articlesPageWrapper')[1])">REGRESAR</button>
+			<div class="articlesPage">
+				<h1 style="text-align: center;">NOISE nos contará la historia del Norte de México a través del audio.</h1><br>
+				<img src="assets/images/articleNorte2.jpg" alt="">
+				<p >Como ya sabemos, este 13 y 14 de Noviembre, volverá NOISE, con la promesa de llevarnos por un tour por todo méxico, utilizando el audio inmersivo como herramienta principal para llevar esto a cabo. 
+<br><br>
+Para la sorpresa de pocos, México es uno de los países culturalmente más ricos del mundo, albergando una diversidad de animales, plantas y tradiciones tan grande que es verdaderamente difícil poner en números. Tan solo los institutos oficiales de regulación cultural, han reconocido más de 60 diferentes idiomas indígenas, y los han reconocido ya como idiomas nacionales, siendo el Náhuatl el más conocido dentro de este grupo. Sin embargo, la cultura del norte de México varía un poco de la del resto del territorio nacional, por lo que refiere su propio artículo y su propia categoría dentro del esquema que NOISE tiene en su agenda cultural.
+<br><br>
+Algunos de los elementos que vienen a nuestro imaginario colectivo cuando pensamos en esta región caliente, son la cultura de sus estados más representativos; la Sierra Tarahumara de Chihuahua, la música y danza de Sonora, o las hermosas playas de Baja California. Todos elementos que de una forma u otra estarán presentes en este showcase cultural.  
+<br><br>
+Es por lo menos emocionante pensar en explorar una cultura de una forma que se ajusta a las necesidades actuales, durante una temporada en la que salir de casa puede significar arriesgar la vida y la de familiares, NOISE ofrece una experiencia demasiado oportunista, que sería mejor pensarlo dos veces antes de perdérsela. Ahora estamos en nuestras casas, pero si sabemos bien a dónde acercarnos, podríamos transportarnos a otro lugar, donde solo necesitaremos cerrar los ojos para sentir que somos otra persona, y quien sabe, tal vez esta experiencia fije el rumbo para tu siguiente viaje familiar, cuando las fronteras de nuestras casas se abran.
+<br><br>
+Si quieres registrarte para NOISE MX: Edición Paseo por México. Que será en las fechas 13, 14 y 15 de Noviembre, basta con que te suscribas a nuestro Canal de YouTube para mantenerte informado de todas las novedades.
+	 </p>
+				<button class="regresarFinal" style="margin-top: 5%;" onclick="makeInvisible($('.articlesPageWrapper')[1])">REGRESAR</button>
+			</div>
+        </div>
+    </div>
+	
     <div class="contentContainer" id="SCHEDULECONTENT">
         <div class="scheduleWrapper wrapper">
             <div class="speakers">
@@ -534,6 +621,12 @@ input[type='email']{
                 $($(el).parent()).css("display", "none");
             }, 300);
         }
+		function makeArticleVisible(el, article){
+			makeInvisible(el);
+			setTimeout(function(){
+				makeVisible(article);
+			}, 301);
+		}
         
         $(document).ready(function(){
             var parallax = new Parallax($(".scene")[0], {selector: '.layer',});
