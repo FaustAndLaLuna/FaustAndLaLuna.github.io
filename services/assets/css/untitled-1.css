@@ -1,0 +1,63 @@
+
+
+
+@media screen and (max-width: 768px) {
+  #hero{
+    background-image: url('../img/2.jpg')!important;
+  }
+  #tables{
+    width: auto!important;
+  }
+  .photo-tags{
+    display: flex;
+    justify-content: center;
+  }
+  .pricingTable{
+    width: calc(100% - 60px)!important;
+    margin: 0 30px 20px !important;
+  }
+}
+.btn-primary {
+  background-color: #b32626!important;
+  border-color: #b32626!important;
+  color: #fff!important;
+}
+
+a:hover {
+  color: #8f1717!important;
+  text-decoration: underline;
+}
+
+.btn:hover {
+  color: #ffffff!important;
+  text-decoration: none;
+}
+
+a {
+  color: #b32626!important;
+}
+
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+  background-color: #6c0f0f!important;
+  border-color: #6c0f0f!important;
+}
+
+.bg-primary {
+  background-color: #8e3030!important;
+}
+
+.text-secondary {
+  color: #fff501!important;
+}
+
+.service-icon {
+  background-color: #fff;
+  color: #ff6b00!important;
+  height: 7rem;
+  width: 7rem;
+  display: block;
+  line-height: 7.5rem;
+  font-size: 2.25rem;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,.1);
+}
+
