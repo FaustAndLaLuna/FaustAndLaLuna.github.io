@@ -268,25 +268,64 @@ function expandAll() {
 function linkColor(linkCode) {
 	switch (linkCode)
 	{
-	  case 'Exploration Actions': 
-	  	return '#0000FF';//blue
+	  case 'a': 
+	  	return '#FF0000';
 	    break;
-	  case 'Task Actions':
-	  	return '#FF7F00';//orange
-	  	break;
-	  case 'App Actions': 
-		return '#FF0000';//red
-		break;
-	  case 'Insight Actions':
-		return '#7F007F';//purple
-		break;
-	  case 'Meta Actions':
-		  return '#00FFFF';//cyan
-		  break;
+    case 'b': 
+	  	return '#DD2200';
+	    break;
+    case 'c': 
+	  	return '#AA4400';
+	    break;
+    case 'd': 
+	  	return '#996600';
+	    break;
+    case 'e': 
+	  	return '#778800';
+	    break;
+    case 'f': 
+	  	return '#55AA00';
+	    break;
+    case 'g': 
+	  	return '#33CC00';
+	    break;
+    case 'h': 
+	  	return '#11EE00';
+	    break;
+    case 'i': 
+	  	return '#00FF11';
+	    break;
+    case 'j': 
+	  	return '#00DD33';
+	    break;
+    case 'k': 
+	  	return '#00BB55';
+	    break;
+    case 'l': 
+	  	return '#009933';
+	    break;
+    case 'm': 
+	  	return '#007755';
+	    break;
+    case 'n': 
+	  	return '#005577';
+	    break;
+    case 'o': 
+	  	return '#003399';
+	    break;
+    case 'p': 
+	  	return '#0011AA';
+	    break;
+    case 'q': 
+	  	return '#0000CC';
+	    break;
 	  default:
 		  return '#0950D0';//generic blue
 		  break;
 	}
 }
+
+document.getElementsByTagName('svg')[0].style.width = 6000
+
 </script>
 </body>
