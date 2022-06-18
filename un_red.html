@@ -6,11 +6,8 @@
         const params = Object.fromEntries(urlSearchParams.entries());
         choices = [];
         count = 0;
-        Object.entries(urlParams).forEach(([key, value]) => {
-            
-        })
-        for(const [key, value] of Object.entries(urlParams)){
-            choices.push(value);
+        for(const [key, value] of Object.entries(params)){
+            choices.push(decodeURI(value));
             count++;
         }
         // choices = ['https://wa.link/0jg9q4', 'https://wa.link/ros7je'];
