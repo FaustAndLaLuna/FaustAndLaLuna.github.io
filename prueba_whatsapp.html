@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Prueba</title>
+</head>
+<body>
+	<input type="text" name="pre" id="pre" value="Texto antes de los productos" placeholder="Texto antes de los productos"><br><br>
+	<input type="checkbox" name="producto1" value="producto1" id="producto1"><label for="producto1">producto1</label><br>
+	<input type="checkbox" name="producto1" value="producto2" id="producto2"><label for="producto2">producto2</label><br>
+	<input type="checkbox" name="producto1" value="producto3" id="producto3"><label for="producto3">producto3</label><br>
+	<input type="checkbox" name="producto1" value="producto4" id="producto4"><label for="producto4">producto4</label><br>
+	<input type="checkbox" name="producto1" value="producto5" id="producto5"><label for="producto5">producto5</label><br><br>
+	<input type="text" name="post" id="post" value="Texto después de los productos" placeholder="Texto después de los productos"><br><br>
+	<button type="button" onclick="mandar('529992070830')">Mandar Whatsapp a Hector</button>
+	<script>
+		function mandar(telefono){
+			let pre = document.querySelector('#pre').value;
+			let post = document.querySelector('#post').value;
+			let products = document.querySelectorAll('input:checked');
+			let separator = '---------------------------------------------';
+			let ans = `${pre}\n${separator}\n`;
+			for(product of products){
+				ans += `${product.value}\n`;
+			}
+			ans += `${separator}\n${post}\n`;
+			ans = encodeURIComponent(ans);
+			url = `https://wa.me/${telefono}?text=${ans}`;
+			console.log(url);
+			window.location.href = url;
+		}
+	</script>
+</body>
+</html>
